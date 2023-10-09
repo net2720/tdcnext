@@ -1,0 +1,120 @@
+/* calendar 컨테이너 스타일 */
+.calendar {
+  display: flex;
+  flex-direction: column; /* 세로로 정렬 */
+  height: 100vh; /* 화면 높이에 맞게 설정 (원하는 높이로 조절 가능) */
+  min-width: 600px;
+}
+
+/* calendar-header 스타일 */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* 부모 컨테이너 너비에 맞게 확장 */
+}
+
+/* calendar-header-font */
+.calendar-header-font {
+  font-weight: bold !important;
+  font-size: 20px;
+}
+
+/* 달력 요일 스타일 */
+.calendar-days {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+/* 각 요일 칸 스타일 */
+.calendar-day {
+  width: calc(100% / 7);
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  min-width: 52px;
+}
+
+/* 일요일 스타일 */
+.calendar-day:nth-child(1) {
+  color: red;
+}
+
+/* 각 날짜 셀 스타일 */
+.calendar-cell {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #eee; /* 날짜 셀 배경색 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* 세로 중앙 정렬 추가 */
+  flex-grow: 1; /* 남는 공간을 모두 활용 */
+}
+
+/* 현재 날짜 스타일 */
+.today {
+  background-color: #cfcfe6;
+}
+
+/* 비활성화된 날짜 스타일 */
+.disabled {
+  background-color: #fff;
+}
+
+/* 각 날짜 셀 컨테이너 스타일 */
+.calendar-cells {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 4px;
+}
+
+.float-left {
+  float: left;
+  clear: none;
+  margin: 0;
+  padding: 0;
+}
+
+.float-right {
+  float: right;
+  clear: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 날짜 스타일 */
+.date-div {
+  font-weight: bold;
+  color: black;
+  font-size: 16px;
+  float: left;
+  margin-left: 15%;
+}
+
+/* 할 일 수 스타일 */
+.todo-count-div {
+  font-weight: bold;
+  color: black;
+  font-size: 24px;
+  float: right;
+  margin-right: 15%;
+}
+
+/* 날짜 스타일 */
+.disabled .date-div {
+  font-weight: bold;
+  color: #bbb; /* 변경할 색상 */
+  font-size: 16px;
+  margin-right: 16px;
+  float: left;
+}
+
+/* 할 일 수 스타일 */
+.disabled .todo-count-div {
+  font-weight: bold;
+  color: #bbb; /* 변경할 색상 */
+  font-size: 24px;
+  float: right;
+}

@@ -1,0 +1,15 @@
+.todo-list-form {
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.date {
+  color: rgb(0, 0, 0);
+}

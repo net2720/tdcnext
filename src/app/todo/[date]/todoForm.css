@@ -1,0 +1,38 @@
+.todo-form {
+  max-width: 600px;
+  margin: 1px;
+  padding: 1px;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+/* 완료 버튼 (녹색) 스타일 */
+.green-button {
+  background-color: rgb(99, 196, 99);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+/* 취소 버튼 (빨간색) 스타일 */
+.red-button {
+  background-color: rgb(187, 65, 65);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+/* 삭제 버튼 (회색) 스타일 */
+.gray-button {
+  background-color: gray;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  float: right;
+  border-radius: 3px;
+}

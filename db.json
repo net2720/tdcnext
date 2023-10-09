@@ -1,0 +1,51 @@
+{
+  "db": [
+    {
+      "id": 2,
+      "date": "20230928",
+      "content": "CRUD 완성하기",
+      "isFinished": true
+    },
+    {
+      "id": 3,
+      "date": "20230929",
+      "content": "MySQL 연동하기",
+      "isFinished": true
+    },
+    {
+      "id": 4,
+      "date": "20230929",
+      "content": "CSS 맞추기",
+      "isFinished": false
+    },
+    {
+      "date": "20230927",
+      "content": "Todo-list 틀짜기",
+      "isFinished": true,
+      "id": 6
+    },
+    {
+      "date": "20230928",
+      "content": "DB 연동하기",
+      "isFinished": true,
+      "id": 7
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

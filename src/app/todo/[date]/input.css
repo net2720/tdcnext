@@ -1,0 +1,25 @@
+.input {
+  max-width: 600px;
+  height: 29px;
+  margin: 1px;
+  padding: 1px;
+  border-radius: 3px;
+  display: flex; /* 자식 요소를 가로로 나란히 정렬 */
+}
+
+.input-form {
+  margin: 3px;
+  padding: 1px;
+  border: 1px solid black;
+  border-radius: 3px;
+  flex-grow: 1; /* Input 요소가 남는 공간을 모두 활용 */
+}
+
+.create-button {
+  background-color: rgb(99, 161, 196);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
