@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 const db = require('../../lib/db');
 
 export default function create(req: NextApiRequest, res: NextApiResponse) {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   if (req.method === 'POST') {
     const { date, content } = req.body;
     const query = `INSERT INTO tdcnext.todos (date, content, isFinished) VALUES (${req.body.date}, '${req.body.content}', 0)`;

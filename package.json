@@ -14,7 +14,7 @@
     "dotenv": "^16.3.1",
     "mysql": "^2.18.1",
     "mysql2": "^3.6.1",
-    "next": "latest",
+    "next": "^13.4.10",
     "react": "latest",
     "react-dom": "latest"
   },

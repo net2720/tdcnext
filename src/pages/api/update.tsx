@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 const db = require('../../lib/db');
 
 export default function update(req: NextApiRequest, res: NextApiResponse) {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   if (req.method === 'PATCH') {
     const { id, isFinished } = req.body;
     const query = `UPDATE tdcnext.todos SET isFinished = ${req.body.isFinished} WHERE (id = ${req.body.id})`;

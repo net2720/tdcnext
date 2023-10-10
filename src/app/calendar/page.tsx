@@ -1,6 +1,6 @@
 'use client';
 import './calendar.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   format,
@@ -22,12 +22,27 @@ type Todo = {
   isFinished: boolean;
 };
 
-type CalenderPorps = {
-  db: Todo[];
-};
-
-export default function Calender(props: CalenderPorps) {
+export default function Calendar() {
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [allTodos, setAllTodos] = useState<Todo[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch(`http://localhost:3000/api/read`, {
+          cache: 'no-store',
+        });
+        const data = await response.json();
+        setAllTodos(data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error fetching data', error);
+      }
+    }
+
+    fetchData();
+  }, []);
 
   const prevMonth = () => {
     setCurrentDate(subMonths(currentDate, 1));
@@ -64,11 +79,15 @@ export default function Calender(props: CalenderPorps) {
   return (
     <div className="calendar">
       <div className="calendar-header">
-        <button onClick={prevMonth}>Prev</button>
+        <button className="button" onClick={prevMonth}>
+          이전
+        </button>
         <span className="calendar-header-font">
           {format(currentDate, 'yyyy MM')}
         </span>
-        <button onClick={nextMonth}>Next</button>
+        <button className="button" onClick={nextMonth}>
+          다음
+        </button>
       </div>
       <div className="calendar-days">
         {['일', '월', '화', '수', '목', '금', '토'].map((day, index) => (
@@ -88,11 +107,11 @@ export default function Calender(props: CalenderPorps) {
             >
               <div className="date-div">{format(date, dateFormat)}</div>
               <div className="todo-count-div">
-                {
-                  props.db.filter(
-                    (todo) => todo.date === format(date, dbDateFormat)
-                  ).length
-                }
+                {isLoading
+                  ? 0
+                  : allTodos.filter(
+                      (todo) => todo.date === format(date, dbDateFormat)
+                    ).length}
               </div>
             </div>
           </Link>
