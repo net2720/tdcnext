@@ -24,7 +24,8 @@ export default function TodoForm({ todo }: TodoProps) {
       },
       body: JSON.stringify({ id: todo.id, isFinished: !todo.isFinished }),
     };
-    fetch(`http://localhost:3000/api/update`, options)
+    const apiUrl = process.env.apiUrl || '/api/update';
+    fetch(apiUrl, options)
       .then((res) => res.json())
       .then(() => {
         router.refresh();
@@ -39,7 +40,8 @@ export default function TodoForm({ todo }: TodoProps) {
       },
       body: JSON.stringify({ id: todo.id }),
     };
-    fetch(`http://localhost:3000/api/delete`, options)
+    const apiUrl = process.env.apiUrl || '/api/delete';
+    fetch(apiUrl, options)
       .then((res) => res.json())
       .then(() => {
         router.refresh();

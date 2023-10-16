@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import TodoForm from './todoForm';
 
 type FormProps = {
@@ -15,7 +13,8 @@ type Todo = {
 
 export default async function Todos(props: FormProps) {
   const date = props.date;
-  const response = await fetch(`http://localhost:3000/api/read`, {
+  const apiUrl = process.env.API_URL + 'api/read';
+  const response = await fetch(apiUrl, {
     cache: 'no-store',
   });
   const allTodo: Todo[] = await response.json();

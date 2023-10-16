@@ -30,7 +30,8 @@ export default function Calendar() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`http://localhost:3000/api/read`, {
+        const apiUrl = process.env.apiUrl || '/api/read';
+        const response = await fetch(apiUrl, {
           cache: 'no-store',
         });
         const data = await response.json();

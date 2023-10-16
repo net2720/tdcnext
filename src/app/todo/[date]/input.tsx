@@ -33,7 +33,8 @@ export default function Input(props: InputProps) {
           content: newTodo,
         }),
       };
-      fetch(`http://localhost:3000/api/create`, options)
+      const apiUrl = process.env.apiUrl || '/api/create';
+      fetch(apiUrl, options)
         .then((res) => res.json())
         .then(() => {
           router.refresh();

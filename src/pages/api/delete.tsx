@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from 'next';
 const db = require('../../lib/db');
 
 export default function update(req: NextApiRequest, res: NextApiResponse) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   if (req.method === 'DELETE') {
     const { id } = req.body;
     const query = `DELETE FROM tdcnext.todos WHERE id = ${req.body.id}`;
