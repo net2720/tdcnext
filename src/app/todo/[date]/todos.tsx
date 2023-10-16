@@ -13,7 +13,7 @@ type Todo = {
 
 export default async function Todos(props: FormProps) {
   const date = props.date;
-  const apiUrl = process.env.API_URL + 'api/read';
+  const apiUrl = process.env.API_URL + '/api/read';
   const response = await fetch(apiUrl, {
     cache: 'no-store',
   });
