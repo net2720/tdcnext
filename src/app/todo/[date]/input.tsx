@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import './input.css';
 
 type InputProps = {
@@ -9,7 +8,6 @@ type InputProps = {
 
 export default function Input(props: InputProps) {
   const [newTodo, setNewTodo] = useState('');
-  const router = useRouter();
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewTodo(e.target.value);
@@ -37,7 +35,7 @@ export default function Input(props: InputProps) {
       fetch(apiUrl, options)
         .then((res) => res.json())
         .then(() => {
-          router.refresh();
+          window.location.href = `/todo/${props.date}`;
         });
     }
   };

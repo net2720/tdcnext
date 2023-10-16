@@ -1,3 +1,5 @@
+'use client';
+import { useState, useEffect } from 'react';
 import TodoForm from './todoForm';
 
 type FormProps = {
@@ -11,13 +13,25 @@ type Todo = {
   isFinished: boolean;
 };
 
-export default async function Todos(props: FormProps) {
+export default function Todos(props: FormProps) {
+  const [allTodo, setAllTodo] = useState<Todo[]>([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const apiUrl = process.env.apiUrl || '/api/read';
+        const response = await fetch(apiUrl, {
+          cache: 'no-store',
+        });
+        const data = await response.json();
+        setAllTodo(data);
+      } catch (err) {
+        console.error('Error fetching data', err);
+      }
+    }
+    fetchData();
+  }, []);
   const date = props.date;
-  const apiUrl = process.env.API_URL + '/api/read';
-  const response = await fetch(apiUrl, {
-    cache: 'no-store',
-  });
-  const allTodo: Todo[] = await response.json();
   const filteredTodos = allTodo.filter((todo) => todo.date === date);
   return (
     <>

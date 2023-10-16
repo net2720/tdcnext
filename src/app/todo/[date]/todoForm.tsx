@@ -1,5 +1,4 @@
 'use client';
-import { useRouter } from 'next/navigation';
 import './todoForm.css';
 
 type Todo = {
@@ -14,8 +13,6 @@ type TodoProps = {
 };
 
 export default function TodoForm({ todo }: TodoProps) {
-  const router = useRouter();
-
   const handleFinishCheck = () => {
     const options = {
       method: 'PATCH',
@@ -28,7 +25,7 @@ export default function TodoForm({ todo }: TodoProps) {
     fetch(apiUrl, options)
       .then((res) => res.json())
       .then(() => {
-        router.refresh();
+        window.location.href = `/todo/${todo.date}`;
       });
   };
 
@@ -44,7 +41,7 @@ export default function TodoForm({ todo }: TodoProps) {
     fetch(apiUrl, options)
       .then((res) => res.json())
       .then(() => {
-        router.refresh();
+        window.location.href = `/todo/${todo.date}`;
       });
   };
   return (
